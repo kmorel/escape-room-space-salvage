@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 200%;
+        }
+    </style>
+    <script>
+        function checkCheckboxes() {
+            // Get references to the checkboxes
+            var checkbox1 = document.getElementById('checkbox1');
+            var checkbox2 = document.getElementById('checkbox2');
+            var checkbox3 = document.getElementById('checkbox3');
+
+            // Simple function for randomish code
+            var code = 37395;
+
+            // Check which boxes are checked and add to the array
+            if (checkbox1.checked) {
+                code = code + 89012;
+            }
+            if (checkbox2.checked) {
+                code = code + 54468;
+            }
+            if (checkbox3.checked) {
+                code = code + 97374;
+            }
+
+            // Create a message based on the checked boxes
+            var message = code % 100000;
+
+            // Write the message to the result div
+            document.getElementById('result').textContent = message;
+
+            // Prevent the form from submitting
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h1>Who is an Impostor?</h1>
+    <p>Before you can open the airlock, you must determine who is an impostor. Select in the form below and submit. If you are correct, you will get the correct airlock code.</p>
+    <form onsubmit="return checkCheckboxes();">
+        <label><input type="checkbox" id="checkbox1">JoAnn</label><br>
+        <label><input type="checkbox" id="checkbox2">Ryan</label><br>
+        <label><input type="checkbox" id="checkbox3">Kenzie</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result" class="result"></div>
+</body>
+</html>
